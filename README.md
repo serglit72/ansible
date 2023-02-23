@@ -1,18 +1,18 @@
 # Ansible
 
 ### Ansible playbook for Apache installation on Ubuntu 20.04 and Ubuntu 22.04  
-```
+```shell
 install_apache_ubuntu.yml
 ```
 ### Inventory file located in the same directory:
 
-```
+```shell
 inventory.txt
 ```
 
 ### Run the playbook 
 
-```
+```shell
 ansible-playbook -i inventory.txt install_apache_ubuntu.yml 
 ```
 ### Tests:
