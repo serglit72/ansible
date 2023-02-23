@@ -16,6 +16,7 @@ inventory.txt
 ansible-playbook -i inventory.txt install_apache_ubuntu.yml 
 ```
 ### Tests:
+<p>
     - Apache server is up-and-running and enabled
     - webpage has to have word "Cycle" in the content
 ### If test failed:
