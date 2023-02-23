@@ -17,9 +17,9 @@ ansible-playbook -i inventory.txt install_apache_ubuntu.yml
 ```
 ### Tests:
     - Apache server is up-and-running and enabled
-    - webpage has to have word __Cycle__ in the content
+    - webpage has to have word **Cycle** in the content
 ### If test failed:
-    error message: **__service is not happy__** will appear
+    error message: __service is not happy__ will appear
 
 
 
