@@ -1,6 +1,12 @@
 [web]
 web1  ansible_host=146.190.50.65
 
-
 [db]
 db1   ansible_host=137.184.27.32
+
+[ubuntu-22]
+ubuntu-22 ansible_host=64.227.115.31
+
+
+[ubuntu-20-04]
+ubuntu-20-04 ansible_host=164.90.183.32
