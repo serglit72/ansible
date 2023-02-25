@@ -9,4 +9,4 @@ ubuntu-22 ansible_host=64.227.115.31
 
 
 [ubuntu-20-04]
-ubuntu-20-04 ansible_host=164.90.183.32
+ubuntu-20-04 ansible_host=68.183.18.136

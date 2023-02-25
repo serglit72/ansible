@@ -1,11 +1,12 @@
 - hosts: 
     ubuntu-20-04
-    ubuntu-22
+    # ubuntu-22
   tasks:
   - name: Install the latest version of Apache
     apt:
       name: apache2, unzip
       state: latest
+      update_cache: yes
   
   - name:  Make sure Apache service is running and enabled
     systemd: 
@@ -13,19 +14,35 @@
       state: started
       enabled: yes
   
-  - name: Unarchive a file that needs to be downloaded (added in 2.0)
+  - name: make a directory
+    file:
+      path: /var/www/files_html
+      state: directory
+
+  - name: Unarchive a file that needs to be downloaded (added in 2.0) in www/  folder
     unarchive:
-      src: https://www.free-css.com/assets/files/free-css-templates/download/page287/cycle.zip
-      dest: /var/www/
+      src: https://www.free-css.com/assets/files/free-css-templates/download/page288/global.zip
+      # src: https://www.free-css.com/assets/files/free-css-templates/download/page287/cycle.zip
+      dest: /var/www/files_html
       remote_src: yes
 
+
+  - name: Copy the archive content to html
+    shell:
+      chdir: /var/www/files_html
+      cmd: cp -r $(echo $(ls)/*) /var/www/html
+ 
   - action: uri url=http://{{ ansible_host }} return_content=yes
     register: webpage
 
   - fail:
       msg: 'service is not happy'
-    when: "'Cycle' not in webpage.content"
+    when: "'next' not in webpage.content"
 
+  - name: clean up directory
+    file:
+      path: /var/www/files_html
+      state: absent
   # - name: Recursively change ownership of a directory
   #   file:
   #     path: /var/www/html
