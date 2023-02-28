@@ -1,0 +1,10 @@
+- hosts: all
+  # vars:
+  #   message: "here is my variable"
+  tasks:
+  - name: Get a kernel version of OS
+    shell: "uname -r"
+    register: kernel_version
+
+  - debug:
+    msg: "Version kernel is {{ kernel_version.stdout }}"

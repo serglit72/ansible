@@ -1,5 +1,5 @@
 [web]
-web1  ansible_host=146.190.50.65
+centos  ansible_host=137.184.110.132
 
 [db]
 db1   ansible_host=137.184.27.32

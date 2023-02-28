@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+  - name: Update system
+    apt:
+      state: latest
+      update_cache: yes
+      
+  - name: Install Apache
+    package:
+      name: "{{ package_name }}"
+      state: present

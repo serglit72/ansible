@@ -31,7 +31,8 @@
     shell:
       chdir: /var/www/files_html
       cmd: cp -r $(echo $(ls)/*) /var/www/html
- 
+  
+  # Test: wheather or not webpage is available
   - action: uri url=http://{{ ansible_host }} return_content=yes
     register: webpage
 
